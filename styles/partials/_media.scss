@@ -1,0 +1,14 @@
+@use "../partials/variables" as var;
+
+//not using the high breakdown, a lot of stylings from tablet are applicable to the desktop version as well.
+@mixin tablet {
+  @media screen and (min-width: var.$tablet-breakdown-low) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: var.$desktop-breakdown-low) {
+    @content;
+  }
+}

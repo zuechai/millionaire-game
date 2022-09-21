@@ -1,0 +1,71 @@
+@use "./variables" as var;
+
+// || Custom mixins
+
+//A flex shorthand of sorts
+@mixin display-flex(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $flex-wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin mobile-default-padding() {
+  padding: var.$m-unit4 var.$m-unit3;
+}
+
+//those four mixins allow to specify only right and left, or top and bottom padding or margin on one line, with different values. Those lines add up.
+@mixin horizontal-padding($right: 0px, $left: 0px) {
+  padding-right: $right;
+  padding-left: $left;
+}
+
+@mixin vertical-padding($top: 0px, $bottom: 0px) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin horizontal-margin($right: 0px, $left: 0px) {
+  margin-right: $right;
+  margin-left: $left;
+}
+
+@mixin vertical-margin($top: 0px, $bottom: 0px) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+// || Media categories, pretty sure they're unused right now but leaving them here.
+
+@mixin breakpoint-tablet {
+  @media screen and (min-width: var.$tablet-breakdown-low) and (max-width: var.$tablet-breakdown-low) {
+    @content;
+  }
+}
+
+@mixin breakpoint-desktop {
+  @media screen and (min-width: var.$desktop-breakdown-low) {
+    @content;
+  }
+}
+
+@mixin margin-btm-m {
+  margin-bottom: 6rem;
+}
+@mixin margin-btm-sm {
+  margin-bottom: 2rem;
+}
+
+@mixin margin-btm-xs {
+  margin-bottom: 1rem;
+}
+
+@mixin gap-sm {
+  gap: 2rem;
+}

@@ -1,0 +1,14 @@
+//animation that makes a component wiggle. Recommended: 3seconds, 3 times
+@keyframes wiggle {
+  30% {
+    transform: rotate(0deg);
+  }
+  2%, 10%, 18% {
+    transform: rotate(4deg);
+  }
+
+  6%, 14%, 22% {
+    transform: rotate(-4deg);
+  }
+
+}

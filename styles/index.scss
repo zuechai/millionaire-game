@@ -1,0 +1,148 @@
+@use "./partials/global";
+@use "./partials/variables";
+@use "./partials/reset";
+@use "./partials/colors";
+@use "./partials/animations";
+@use "./partials/fonts";
+@use "./partials/media";
+@use "./partials/mixins" as mix;
+
+.header {
+  @include mix.margin-btm-xs;
+}
+
+.logo {
+  &__img {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 110rem;
+  height: 60rem;
+  margin: 6rem auto 2rem;
+  text-align: center;
+  background-image: url(../assets/images/bg-img.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.main {
+  border: double #fff 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1rem;
+  padding: 4rem 2rem;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mix.gap-sm;
+  @include mix.margin-btm-m;
+}
+
+.score {
+  &__value {
+    &-span {
+      font-weight: 600;
+    }
+  }
+  &__total {
+    &-span {
+      font-weight: 600;
+    }
+  }
+}
+
+.question {
+  margin: 0 auto;
+  width: 66%;
+  font-size: 2rem;
+  @include mix.margin-btm-sm;
+}
+
+.response {
+  @include mix.margin-btm-xs;
+  visibility: hidden;
+}
+
+.answers-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  @include mix.gap-sm;
+}
+
+.answer-card {
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  flex: 45%;
+  border: solid 1px white;
+
+  &__label {
+    padding: 1rem;
+    background-color: rgba(121, 72, 0, 0.5);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background: rgba(121, 72, 0, 0.75);
+    }
+  }
+}
+
+.radio-answer {
+  display: none;
+  &:checked + .answer-card__label,
+  &:active + .answer-card__label {
+    background-color: rgba(121, 72, 0);
+  }
+}
+
+.btn-container {
+  flex: 66%;
+
+  &--next {
+    visibility: hidden;
+  }
+}
+
+.btn {
+  padding: 2rem 4rem;
+  background-color: rgba(121, 72, 0, 0.5);
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 2rem;
+  transition: all 0.2s;
+  &:hover {
+    background: rgba(121, 72, 0, 0.75);
+    cursor: pointer;
+  }
+  &:active {
+    background-color: rgba(121, 72, 0);
+  }
+}
+
+.answer-validation {
+  flex: 66%;
+  visibility: hidden;
+
+  &--correct {
+    color: green;
+  }
+
+  &--incorrect {
+    color: red;
+  }
+}
